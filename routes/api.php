@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\AssetController;
+use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\GenerationController;
 use App\Http\Controllers\Api\IntakeController;
 use App\Http\Controllers\MeditationController;
@@ -20,4 +21,6 @@ Route::prefix('v1')->middleware('api.token')->group(function (): void {
     Route::get('/assets/{assetId}/download', [AssetController::class, 'download'])->name('assets.download');
 
     Route::get('/meditations', [MeditationController::class, 'index'])->name('meditations.index');
+
+    Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
 });
