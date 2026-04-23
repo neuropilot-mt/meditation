@@ -5,5 +5,7 @@ nixPkgs = [
   "php84Extensions.mbstring",
   "php84Extensions.openssl",
   "php84Extensions.pdo",
-  "php84Extensions.pdo_mysql"
+  "php84Extensions.pdo_mysql",
+  "php84Extensions.fileinfo",
+  "php84Extensions.zip"
 ]
