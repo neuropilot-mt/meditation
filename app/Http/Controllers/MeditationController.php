@@ -11,7 +11,7 @@ class MeditationController extends Controller
 {
     public function index(Request $request): AnonymousResourceCollection
     {
-        $query = Meditation::query();
+        $query = Meditation::with('category');
 
         if ($request->has('category_id')) {
             $query->where('category_id', $request->input('category_id'));
