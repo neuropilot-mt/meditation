@@ -49,4 +49,17 @@ class Meditation extends Model
 
         return Storage::disk('public')->url('generated/'.$value);
     }
+
+    public function getImageUrlAttribute(?string $value): ?string
+    {
+        if ($value === null) {
+            return null;
+        }
+
+        if (str_starts_with($value, 'http')) {
+            return $value;
+        }
+
+        return Storage::disk('public')->url('generated/'.$value);
+    }
 }
