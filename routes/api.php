@@ -20,7 +20,6 @@ Route::prefix('v1')->middleware('api.token')->group(function (): void {
     Route::get('/assets/{assetId}', [AssetController::class, 'show'])->name('assets.show');
     Route::get('/assets/{assetId}/download', [AssetController::class, 'download'])->name('assets.download');
 
-    Route::get('/meditations', [MeditationController::class, 'index'])->name('meditations.index');
-
-    Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
 });
+Route::get('/meditations', [MeditationController::class, 'index'])->name('meditations.index');
+Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
