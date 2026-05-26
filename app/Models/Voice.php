@@ -2,13 +2,13 @@
 
 namespace App\Models;
 
-use Database\Factories\MeditationFactory;
+use Database\Factories\VoiceFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Meditation extends Model
+class Voice extends Model
 {
-    /** @use HasFactory<MeditationFactory> */
+    /** @use HasFactory<VoiceFactory> */
     use HasFactory;
 
     public $incrementing = false;
@@ -19,24 +19,14 @@ class Meditation extends Model
 
     protected $fillable = [
         'id',
-        'title',
+        'display_name',
+        'avatar_url',
         'description',
-        'category',
-        'duration',
-        'audio_by_voice',
-        'image_url',
         'access_type',
         'sort_order',
     ];
 
     protected $casts = [
-        'audio_by_voice' => 'array',
-        'duration' => 'integer',
         'sort_order' => 'integer',
     ];
-
-    protected function serializeDate(\DateTimeInterface $date): string
-    {
-        return $date->format('Y-m-d\TH:i:s\Z');
-    }
 }

@@ -12,17 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('meditations', function (Blueprint $table) {
-            $table->uuid('id')->primary();
+            $table->string('id')->primary();
             $table->string('title');
             $table->text('description');
-            $table->foreignId('category_id')->constrained('categories')->cascadeOnDelete();
-            $table->json('tags');
+            $table->enum('category', ['wake_up', 'productivity', 'sleep']);
             $table->integer('duration');
-            $table->string('audio_url');
+            $table->json('audio_by_voice');
             $table->string('image_url');
-            $table->string('access_type');
-            $table->string('preview_audio_url')->nullable();
-            $table->integer('sort_order');
+            $table->enum('access_type', ['free', 'rewarded']);
+            $table->integer('sort_order')->default(0);
             $table->timestamps();
         });
     }

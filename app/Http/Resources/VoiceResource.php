@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class MeditationResource extends JsonResource
+class VoiceResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,15 +16,11 @@ class MeditationResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'title' => $this->title,
+            'display_name' => $this->display_name,
+            'avatar_url' => $this->avatar_url,
             'description' => $this->description,
-            'category' => $this->category,
-            'duration' => $this->duration,
-            'audio_by_voice' => $this->audio_by_voice,
-            'image_url' => $this->image_url,
             'access_type' => $this->access_type,
             'sort_order' => $this->sort_order,
-            'created_at' => $this->created_at?->format('Y-m-d\TH:i:s\Z'),
         ];
     }
 }
