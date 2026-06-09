@@ -12,29 +12,31 @@ class VoiceSeeder extends Seeder
      */
     public function run(): void
     {
+        Voice::query()->delete();
+
         $voices = [
             [
-                'id' => 'maya',
-                'display_name' => 'Maya',
-                'avatar_url' => 'https://cdn.example.com/voices/maya.jpg',
+                'id' => 'almee',
+                'display_name' => 'Almee',
+                'avatar_url' => 'https://fls-a1f95989-3ceb-4c1f-9c84-418c462b7dbe.laravel.cloud/avatars/almee.png',
                 'description' => 'Warm, calming female voice.',
                 'access_type' => 'free',
                 'sort_order' => 1,
             ],
             [
-                'id' => 'daniel',
-                'display_name' => 'Daniel',
-                'avatar_url' => 'https://cdn.example.com/voices/daniel.jpg',
+                'id' => 'theo',
+                'display_name' => 'Theo',
+                'avatar_url' => 'https://fls-a1f95989-3ceb-4c1f-9c84-418c462b7dbe.laravel.cloud/avatars/theo.png',
                 'description' => 'Grounded, reassuring male voice.',
                 'access_type' => 'free',
                 'sort_order' => 2,
             ],
             [
-                'id' => 'aiko',
-                'display_name' => 'Aiko',
-                'avatar_url' => 'https://cdn.example.com/voices/aiko.jpg',
+                'id' => 'nicole',
+                'display_name' => 'Nicole',
+                'avatar_url' => 'https://fls-a1f95989-3ceb-4c1f-9c84-418c462b7dbe.laravel.cloud/avatars/nicole.png',
                 'description' => 'Soft-spoken, contemplative voice.',
-                'access_type' => 'rewarded',
+                'access_type' => 'free',
                 'sort_order' => 3,
             ],
             [

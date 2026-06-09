@@ -12,20 +12,14 @@ class CategorySeeder extends Seeder
      */
     public function run(): void
     {
-        $categories = [
-            'relaxation',
-            'sleep',
-            'awake',
-            'exercise',
-            'workout',
-            'run',
-            'reading',
-            'work',
-            'concentrate',
-        ];
-
-        foreach ($categories as $name) {
-            Category::firstOrCreate(['name' => $name]);
-        }
+//        $categories = [
+//            'sleep',
+//            'wake_up',
+//            'productivity',
+//        ];
+//
+//        foreach ($categories as $name) {
+//            Category::firstOrCreate(['name' => $name]);
+//        }
     }
 }
