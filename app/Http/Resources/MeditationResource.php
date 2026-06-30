@@ -20,8 +20,11 @@ class MeditationResource extends JsonResource
             'description' => $this->description,
             'category' => $this->category,
             'duration' => $this->duration,
-            'audio_by_voice' => $this->audio_by_voice,
+            'audio_url' => $this->audio_url,
             'image_url' => $this->image_url,
+            'voices' => $this->voices
+                ->mapWithKeys(fn ($voice) => [$voice->id => $voice->pivot->audio_url])
+                ->all(),
             'access_type' => $this->access_type,
             'sort_order' => $this->sort_order,
             'created_at' => $this->created_at?->format('Y-m-d\TH:i:s\Z'),

@@ -11,10 +11,10 @@ class MeditationController extends Controller
 {
     public function index(Request $request): AnonymousResourceCollection
     {
-        $query = Meditation::with('category');
+        $query = Meditation::with('voices');
 
-        if ($request->has('category_id')) {
-            $query->where('category_id', $request->input('category_id'));
+        if ($request->has('category')) {
+            $query->where('category', $request->input('category'));
         }
 
         return MeditationResource::collection($query->get());

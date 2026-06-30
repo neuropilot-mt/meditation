@@ -16,6 +16,6 @@ class Category extends Model
 
     public function meditations(): HasMany
     {
-        return $this->hasMany(Meditation::class);
+        return $this->hasMany(Meditation::class, 'category', 'name');
     }
 }

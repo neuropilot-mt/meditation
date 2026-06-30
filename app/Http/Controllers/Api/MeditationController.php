@@ -13,13 +13,13 @@ class MeditationController extends Controller
     public function index(): AnonymousResourceCollection
     {
         return MeditationResource::collection(
-            Meditation::orderBy('sort_order')->get()
+            Meditation::with('voices')->orderBy('sort_order')->get()
         );
     }
 
     public function show(string $id): JsonResource
     {
-        $meditation = Meditation::findOrFail($id);
+        $meditation = Meditation::with('voices')->findOrFail($id);
 
         return new MeditationResource($meditation);
     }

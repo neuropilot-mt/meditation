@@ -2,7 +2,6 @@
 
 namespace Database\Factories;
 
-use App\Models\Category;
 use App\Models\Meditation;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
@@ -23,13 +22,11 @@ class MeditationFactory extends Factory
             'id' => Str::uuid(),
             'title' => $this->faker->sentence(3),
             'description' => $this->faker->paragraph(),
-            'category_id' => Category::inRandomOrder()->first()?->id ?? Category::factory(),
-            'tags' => $this->faker->words(3),
+            'category' => $this->faker->randomElement(['sleep', 'wake_up', 'productivity']),
             'duration' => $this->faker->numberBetween(60, 3600),
             'audio_url' => $this->faker->url(),
             'image_url' => $this->faker->imageUrl(),
-            'access_type' => $this->faker->randomElement(['free', 'premium']),
-            'preview_audio_url' => $this->faker->optional()->url(),
+            'access_type' => $this->faker->randomElement(['free', 'rewarded']),
             'sort_order' => $this->faker->numberBetween(1, 100),
         ];
     }

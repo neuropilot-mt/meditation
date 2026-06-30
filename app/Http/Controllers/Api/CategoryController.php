@@ -11,7 +11,7 @@ class CategoryController extends Controller
 {
     public function index(Request $request): JsonResponse
     {
-        $query = Category::with('meditations')->orderBy('name');
+        $query = Category::with('meditations.voices')->orderBy('name');
 
         if ($request->has('category_id')) {
             $query->where('id', $request->input('category_id'));
